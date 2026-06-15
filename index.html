@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html class="light" lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Lenkukl & Martins | Odontologia Especializada</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-background": "#1e1b18",
+                    "on-secondary-fixed-variant": "#464746",
+                    "surface-container-high": "#efe6e2",
+                    "outline-variant": "#d0c5af",
+                    "on-tertiary-container": "#444544",
+                    "secondary-fixed": "#e3e2e0",
+                    "tertiary-container": "#b3b3b1",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary-container": "#e0dfde",
+                    "surface-container-low": "#fbf2ed",
+                    "on-primary-fixed": "#241a00",
+                    "inverse-surface": "#34302c",
+                    "primary-fixed": "#ffe088",
+                    "on-primary": "#ffffff",
+                    "error": "#ba1a1a",
+                    "tertiary-fixed": "#e3e2e0",
+                    "on-error-container": "#93000a",
+                    "on-surface": "#1e1b18",
+                    "outline": "#7f7663",
+                    "surface-tint": "#735c00",
+                    "on-secondary-container": "#626361",
+                    "on-secondary": "#ffffff",
+                    "surface": "#fff8f5",
+                    "surface-bright": "#fff8f5",
+                    "tertiary-fixed-dim": "#c7c6c4",
+                    "inverse-on-surface": "#f8efea",
+                    "primary": "#735c00",
+                    "tertiary": "#5e5e5d",
+                    "surface-dim": "#e1d8d4",
+                    "on-surface-variant": "#4d4635",
+                    "on-primary-fixed-variant": "#574500",
+                    "surface-container-highest": "#e9e1dc",
+                    "primary-fixed-dim": "#e9c349",
+                    "on-tertiary-fixed": "#1b1c1b",
+                    "on-primary-container": "#554300",
+                    "secondary-fixed-dim": "#c7c6c5",
+                    "inverse-primary": "#e9c349",
+                    "on-secondary-fixed": "#1a1c1b",
+                    "surface-variant": "#e9e1dc",
+                    "error-container": "#ffdad6",
+                    "on-error": "#ffffff",
+                    "background": "#fff8f5",
+                    "on-tertiary": "#ffffff",
+                    "on-tertiary-fixed-variant": "#464746",
+                    "surface-container": "#f5ece7",
+                    "secondary": "#5e5e5d",
+                    "primary-container": "#d4af37"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "gutter": "24px",
+                    "section-gap": "80px",
+                    "base": "8px",
+                    "container-padding": "24px"
+            },
+            "fontFamily": {
+                    "headline-lg": ["Playfair Display"],
+                    "body-md": ["Manrope"],
+                    "headline-lg-mobile": ["Playfair Display"],
+                    "title-md": ["Manrope"],
+                    "display-lg": ["Playfair Display"],
+                    "body-lg": ["Manrope"],
+                    "label-caps": ["Manrope"]
+            },
+            "fontSize": {
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "500"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "500"}],
+                    "title-md": ["20px", {"lineHeight": "28px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+    <style>
+        .neomorphic-relief {
+            box-shadow: 8px 8px 16px rgba(180, 180, 180, 0.2), -8px -8px 16px rgba(255, 255, 255, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+        .neomorphic-inset {
+            box-shadow: inset 4px 4px 8px rgba(180, 180, 180, 0.2), inset -4px -4px 8px rgba(255, 255, 255, 0.7);
+        }
+        .marble-texture {
+            background-image: url('https://www.transparenttextures.com/patterns/marble-similar.png');
+            background-color: #fffcfb;
+        }
+        .marquee {
+            white-space: nowrap;
+            overflow: hidden;
+            display: flex;
+        }
+        .marquee-content {
+            display: flex;
+            animation: scroll 40s linear infinite;
+        }
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .boiserie-frame {
+            border: 40px solid transparent;
+            border-image: url('https://www.transparenttextures.com/patterns/marble-similar.png') 40 repeat;
+            box-shadow: inset 10px 10px 30px rgba(0,0,0,0.03), inset -10px -10px 30px rgba(255,255,255,0.8);
+        }
+        @media (max-width: 768px) {
+            .boiserie-frame { border-width: 12px; }
+        }
+    </style>
+</head>
+<body class="text-on-surface font-body-md overflow-x-hidden" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDDFgLH5Fr9jb0vKN4W2k5Awjlu-32khZjECL3J5Cd9LOQgxYxXMzDk14Nb7RyWO0F1l18r__wa-3aGrGZeynjCnBwUJchWWqi4m1pRY-u5-yYo_36XmvIDETUH3sBxnJ4J3fvAkQRm_ZIazkFpbyqzR6m7NvT-3EXTZAa_5oDops88tNdgY0d1lqG-osTHKtElgucNKCoq4gqceOE20_81Hf62uREw31cpdBnsgsSJk-yAmM7e55bEFw8TzNo9u1HeTXrwrr6HbXI'); background-attachment: fixed; background-size: cover; background-position: center center;">
+
+<div class="boiserie-frame min-h-screen bg-transparent">
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-white/70 backdrop-blur-lg border-b border-outline-variant/20">
+        <div class="flex justify-between items-center w-full px-gutter py-4 max-w-[1280px] mx-auto">
+            <a href="#" class="font-headline-lg text-headline-lg text-primary italic">
+                LM
+            </a>
+            
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex gap-8 items-center">
+                <a class="font-label-caps text-label-caps tracking-widest text-on-surface-variant hover:text-primary transition-colors" href="#especialidades">Especialidades</a>
+                <a class="font-label-caps text-label-caps tracking-widest text-on-surface-variant hover:text-primary transition-colors" href="#clinica">Clínica</a>
+                <a class="font-label-caps text-label-caps tracking-widest text-on-surface-variant hover:text-primary transition-colors" href="#doutoras">Doutoras</a>
+                <a class="font-label-caps text-label-caps tracking-widest text-on-surface-variant hover:text-primary transition-colors" href="#contato">Contato</a>
+            </nav>
+
+            <div class="flex items-center gap-4">
+                <a href="#contato" class="hidden sm:inline-block bg-primary-container text-on-primary font-label-caps text-label-caps px-6 py-3 rounded-DEFAULT hover:opacity-90 transition-all active:scale-95 shadow-sm text-center">
+                    Agendar Consulta
+                </a>
+                <!-- Hamburger Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden text-primary focus:outline-none p-2 rounded-lg neomorphic-relief bg-white/40" aria-label="Abrir Menu">
+                    <span class="material-symbols-outlined text-2xl block">menu</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobile-menu" class="fixed inset-0 z-50 bg-background/95 backdrop-blur-xl translate-x-full transition-transform duration-300 md:hidden flex flex-col justify-center items-center gap-8">
+        <button id="close-menu-btn" class="absolute top-6 right-6 text-primary p-2 rounded-lg neomorphic-relief bg-white/40" aria-label="Fechar Menu">
+            <span class="material-symbols-outlined text-2xl block">close</span>
+        </button>
+        <a class="font-headline-lg text-2xl text-on-surface-variant hover:text-primary transition-colors" href="#especialidades">Especialidades</a>
+        <a class="font-headline-lg text-2xl text-on-surface-variant hover:text-primary transition-colors" href="#clinica">Clínica</a>
+        <a class="font-headline-lg text-2xl text-on-surface-variant hover:text-primary transition-colors" href="#doutoras">Doutoras</a>
+        <a class="font-headline-lg text-2xl text-on-surface-variant hover:text-primary transition-colors" href="#contato">Contato</a>
+        <a href="#contato" class="bg-primary-container text-on-primary font-label-caps text-label-caps px-8 py-4 tracking-widest hover:opacity-90 transition-all active:scale-95 shadow-lg rounded-DEFAULT mt-4 block text-center">
+            AGENDAR CONSULTA
+        </a>
+    </div>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="relative min-h-[95vh] flex items-center justify-center overflow-hidden pt-24 pb-12">
+            <div class="relative z-10 px-gutter max-w-[1280px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center w-full">
+                <div class="lg:col-span-7 text-left">
+                    <p class="font-label-caps text-label-caps tracking-[0.4em] text-primary mb-6">REABILITAÇÃO ORAL &amp; HARMONIZAÇÃO FACIAL</p>
+                    <h1 class="font-display-lg text-display-lg text-on-background mb-10 leading-tight">A arte de sorrir com precisão e serenidade.</h1>
+                    <div class="flex flex-col sm:flex-row gap-6 justify-start items-stretch sm:items-center">
+                        <a class="bg-primary-container text-on-primary font-label-caps text-label-caps px-12 py-4 tracking-widest hover:shadow-xl transition-all active:scale-95 shadow-lg text-center" href="#contato">AGENDAR CONSULTA</a>
+                        <a class="border border-primary/40 text-primary font-label-caps text-label-caps px-12 py-4 tracking-widest hover:bg-white/50 backdrop-blur-sm transition-all text-center" href="#especialidades">CONHEÇA NOSSOS SERVIÇOS</a>
+                    </div>
+                </div>
+                <div class="lg:col-span-5 flex justify-center lg:justify-end">
+                    <div class="w-full max-w-[400px] neomorphic-relief p-8 rounded-full bg-white/30 backdrop-blur-md aspect-square">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCwJVUrE57gOnsuSU3CNc0eAWlU1Cks1IPG6JqW0Op6_WkXU2w8nMzklgNiPj77gYCbbPDcFnEqBiRSgrhgcpndLC9S8nOZZ_ZkLA4nuqwC4QGwb55U0SvcbKGmLZx_MyKRRvF8IfJX2mfPBpft1c4N1L5qDZfRhatJRXwabnstW3TySH8Zg7wYdnlDyDYAUtX9PSKf_2eBV8IsfWGucO9cdxrEYXPDPP6A7uqG-xKwh1ume_1QOuiyR-WPUp48jepuq0tlaCoDKdM" alt="Close-up of a beautiful female smile with perfect white teeth" class="w-full h-full object-cover rounded-full shadow-sm opacity-90">
+                    </div>
+                </div>
+            </div>
+            <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce opacity-40 hidden lg:block">
+                <span class="material-symbols-outlined text-3xl">keyboard_double_arrow_down</span>
+            </div>
+        </section>
+
+        <!-- Specialty Marquee -->
+        <div class="w-full backdrop-blur-sm border-y border-outline-variant/20 overflow-hidden py-4 flex items-center h-[60px] bg-white/20">
+            <div class="marquee w-full">
+                <div class="marquee-content flex items-center gap-12 text-[#1A1A1A] font-semibold uppercase tracking-[3px] text-[13px]">
+                    <span>• IMPLANTES DENTÁRIOS</span>
+                    <span>• PRÓTESES PERSONALIZADAS</span>
+                    <span>• FACETAS EM CERÂMICA</span>
+                    <span>• TRATAMENTO DO BRUXISMO</span>
+                    <span>• HARMONIZAÇÃO FACIAL</span>
+                    <span>• BOTOX</span>
+                    <span>• REABILITAÇÃO ORAL</span>
+                    <span>• ODONTOLOGIA ESTÉTICA</span>
+                    <span>• TECNOLOGIA AVANÇADA</span>
+                    <span>• ATENDIMENTO HUMANIZADO</span>
+                    <span>• EXCELÊNCIA EM CADA DETALHE</span>
+                    <span>• IMPLANTES DENTÁRIOS</span>
+                    <span>• PRÓTESES PERSONALIZADAS</span>
+                    <span>• FACETAS EM CERÂMICA</span>
+                    <span>• TRATAMENTO DO BRUXISMO</span>
+                    <span>• HARMONIZAÇÃO FACIAL</span>
+                    <span>• BOTOX</span>
+                    <span>• REABILITAÇÃO ORAL</span>
+                    <span>• ODONTOLOGIA ESTÉTICA</span>
+                    <span>• TECNOLOGIA AVANÇADA</span>
+                    <span>• ATENDIMENTO HUMANIZADO</span>
+                    <span>• EXCELÊNCIA EM CADA DETALHE</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Especialidades Section -->
+        <section class="py-section-gap px-gutter max-w-[1280px] mx-auto reveal-on-scroll" id="especialidades">
+            <div class="text-center mb-16">
+                <span class="font-label-caps text-primary tracking-widest mb-4 block">SERVIÇOS DE EXCELÊNCIA</span>
+                <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-background mb-4 italic">Nossas Especialidades</h2>
+                <div class="h-[2px] w-16 bg-primary/40 mx-auto"></div>
+                <p class="text-body-md text-on-surface-variant max-w-xl mx-auto mt-6">Uma gama completa de soluções odontológicas estéticas e funcionais, executadas com a máxima precisão.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="p-8 neomorphic-relief bg-white/40 backdrop-blur-sm rounded-xl hover:translate-y-[-4px] transition-all duration-300">
+                    <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-6">
+                        <span class="material-symbols-outlined text-2xl">dentistry</span>
+                    </div>
+                    <h3 class="font-title-md text-title-md text-primary mb-3">Implantes Dentários</h3>
+                    <p class="text-body-md text-on-surface-variant leading-relaxed">
+                        Restabelecimento seguro e durável da mastigação e do sorriso, utilizando implantes de tecnologia avançada.
+                    </p>
+                </div>
+                <!-- Card 2 -->
+                <div class="p-8 neomorphic-relief bg-white/40 backdrop-blur-sm rounded-xl hover:translate-y-[-4px] transition-all duration-300">
+                    <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-6">
+                        <span class="material-symbols-outlined text-2xl">face</span>
+                    </div>
+                    <h3 class="font-title-md text-title-md text-primary mb-3">Harmonização Facial</h3>
+                    <p class="text-body-md text-on-surface-variant leading-relaxed">
+                        Procedimentos sutis como preenchimento com ácido hialurônico e toxina botulínica para realçar sua beleza natural.
+                    </p>
+                </div>
+                <!-- Card 3 -->
+                <div class="p-8 neomorphic-relief bg-white/40 backdrop-blur-sm rounded-xl hover:translate-y-[-4px] transition-all duration-300">
+                    <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-6">
+                        <span class="material-symbols-outlined text-2xl">auto_awesome</span>
+                    </div>
+                    <h3 class="font-title-md text-title-md text-primary mb-3">Facetas &amp; Lentes Cerâmicas</h3>
+                    <p class="text-body-md text-on-surface-variant leading-relaxed">
+                        Transformação estética do sorriso com lâminas ultrafinas em porcelana de alta fidelidade e brilho.
+                    </p>
+                </div>
+                <!-- Card 4 -->
+                <div class="p-8 neomorphic-relief bg-white/40 backdrop-blur-sm rounded-xl hover:translate-y-[-4px] transition-all duration-300">
+                    <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-6">
+                        <span class="material-symbols-outlined text-2xl">build</span>
+                    </div>
+                    <h3 class="font-title-md text-title-md text-primary mb-3">Reabilitação Oral</h3>
+                    <p class="text-body-md text-on-surface-variant leading-relaxed">
+                        Planejamento multidisciplinar para recuperar a funcionalidade mastigatória e o alinhamento estético completo.
+                    </p>
+                </div>
+                <!-- Card 5 -->
+                <div class="p-8 neomorphic-relief bg-white/40 backdrop-blur-sm rounded-xl hover:translate-y-[-4px] transition-all duration-300">
+                    <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-6">
+                        <span class="material-symbols-outlined text-2xl">hdr_weak</span>
+                    </div>
+                    <h3 class="font-title-md text-title-md text-primary mb-3">Tratamento do Bruxismo</h3>
+                    <p class="text-body-md text-on-surface-variant leading-relaxed">
+                        Proteção dos dentes e alívio de dores orofaciais com placas miorelaxantes personalizadas e terapias integradas.
+                    </p>
+                </div>
+                <!-- Card 6 -->
+                <div class="p-8 neomorphic-relief bg-white/40 backdrop-blur-sm rounded-xl hover:translate-y-[-4px] transition-all duration-300">
+                    <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-6">
+                        <span class="material-symbols-outlined text-2xl">volunteer_activism</span>
+                    </div>
+                    <h3 class="font-title-md text-title-md text-primary mb-3">Odontologia Estética</h3>
+                    <p class="text-body-md text-on-surface-variant leading-relaxed">
+                        Clareamento dental de alta performance e restaurações estéticas refinadas que rejuvenescem o sorriso.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Doutoras Section -->
+        <section class="py-section-gap px-gutter max-w-[1280px] mx-auto reveal-on-scroll" id="doutoras">
+            <div class="text-center mb-16">
+                <h2 class="font-headline-lg text-headline-lg text-on-background mb-4 italic">Excelência em Duas Gerações de Cuidado</h2>
+                <div class="h-[2px] w-16 bg-primary/40 mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-24">
+                <div class="relative">
+                    <div class="neomorphic-relief rounded-xl overflow-hidden aspect-[4/5] bg-white/30 backdrop-blur-sm p-1">
+                        <img alt="Dras Lenkukl e Martins juntas" class="w-full h-full object-cover rounded-lg" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFw3uGr-E8wFBbNLqFMGB5lDMDX_7uH0xqOELlPTcdc4F4F6Pqoh0CTU64andgEwauzyLgvHIY_8XI4vp4KN8BawNJRdtZzmSV4We_9SlHHmEx84kUFBnk6j3YET1-a17rCHvsJsEfVJKXsIGVcLBarRtvSipPUvlcVHI_VCylxt6k4lRNPOxG9apn4jI1WTpKvw7aft9Uo8udNoI5hJoI5w3PYlf_5WpFu5_9zGNy1Gl-ZbAVs68XrmxUmRy2x97MNJ3JoxGKbHc">
+                    </div>
+                    <div class="absolute -bottom-6 -right-6 w-48 h-48 neomorphic-relief rounded-xl p-4 bg-white/90 backdrop-blur-md hidden md:flex flex-col justify-center items-center text-center">
+                        <span class="font-display-lg text-primary text-4xl mb-2">15+</span>
+                        <span class="font-label-caps text-[10px] tracking-widest">ANOS DE EXPERIÊNCIA COMBINADA</span>
+                    </div>
+                </div>
+                <div>
+                    <span class="font-label-caps text-primary tracking-widest mb-4 block">NOSSA FILOSOFIA</span>
+                    <h3 class="font-headline-lg text-headline-lg mb-6 leading-tight">Onde a Odontologia encontra a Hospitalidade de Luxo.</h3>
+                    <p class="text-body-lg font-body-lg text-on-surface-variant mb-8 leading-relaxed">
+                        Fundada pelas Dra. Júlia Lenkukl e Dra. Júlia Martins, nossa clínica nasceu do desejo de transformar a experiência odontológica tradicional em um momento de cuidado, bem-estar e resultados estéticos superiores.
+                    </p>
+                    <p class="text-body-lg font-body-lg text-on-surface-variant mb-10 leading-relaxed">
+                        Acreditamos que cada sorriso é único. Por isso, aliamos tecnologia de ponta a um atendimento humanizado, garantindo que sua jornada conosco seja tão radiante quanto o seu novo sorriso.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-6">
+                        <div class="flex-1 p-6 neomorphic-relief bg-white/40 backdrop-blur-sm rounded-lg">
+                            <h4 class="font-title-md text-title-md text-primary mb-2">Radiance</h4>
+                            <p class="text-body-md text-on-surface-variant">Estética impecável que realça sua beleza natural.</p>
+                        </div>
+                        <div class="flex-1 p-6 neomorphic-relief bg-white/40 backdrop-blur-sm rounded-lg">
+                            <h4 class="font-title-md text-title-md text-primary mb-2">Precision</h4>
+                            <p class="text-body-md text-on-surface-variant">Técnicas avançadas para reabilitação duradoura.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Profile Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+                <div class="group cursor-pointer">
+                    <div class="neomorphic-relief rounded-xl overflow-hidden mb-8 transition-transform duration-500 group-hover:scale-[1.02] p-1 bg-white/20 backdrop-blur-sm">
+                        <img alt="Dra. Júlia Lenkukl" class="w-full aspect-square object-cover rounded-lg" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBleuxh_BEmLXjJ7gVjgGDcy9djpuvsgqA32yRUWxa4gF93qYiLKQVmTtZBwEG3EpVgociigNHftyuz_28G9_qgcA0qtkkMyMTt0ZvzEi6LCdTDV3ZJL3bfuvUg8ACV_oJI9qrWPXAbUmtpZQsC7XwVrFEM4OfthTDrdybddIbLJpiFmH9BjCu14DAQkWJK4EXOGsgJCmRr26vcJC5ws8_ZdZYewT2ngDufDt1bz8YYtNh3C51x0701ieVULuLFlT6HwqUB7ESnknA">
+                    </div>
+                    <h4 class="font-headline-lg text-headline-lg mb-2">Dra. Júlia Lenkukl</h4>
+                    <p class="font-label-caps text-primary tracking-widest mb-4">ESPECIALISTA EM REABILITAÇÃO ORAL</p>
+                    <p class="text-body-md text-on-surface-variant leading-relaxed">Focada na reconstrução funcional e estética, a Dra. Lenkukl une precisão técnica a um olhar artístico para devolver a confiança aos seus pacientes.</p>
+                </div>
+                <div class="group cursor-pointer">
+                    <div class="neomorphic-relief rounded-xl overflow-hidden mb-8 transition-transform duration-500 group-hover:scale-[1.02] p-1 bg-white/20 backdrop-blur-sm">
+                        <img alt="Dra. Júlia Martins" class="w-full aspect-square object-cover rounded-lg" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDMFUCaK5YK8Osl_y9Pr_jn4HCeTSiI6PnY-keuJAbGB9CAY_9r6M-y-xv-pl353Nr-i7Lc7Fap7i_aai0p7a0_WiHDSSOPPr5dVy7yCfAtlbWOeZlt4PV7l6RIB1dPYseOnAAj5wV5Z8r5WhhKui_m29WoERTg83yfjARzlGZJE8eEC2GNUakL41RUySWPZCVDIC0cx1c8Zzl-iwjGormBgiU5SWw4WL-_NmiqOlYqlRDlqdBXJvtAAM7Q8EmvMDuo-u307pQ6Hgk">
+                    </div>
+                    <h4 class="font-headline-lg text-headline-lg mb-2">Dra. Júlia Martins</h4>
+                    <p class="font-label-caps text-primary tracking-widest mb-4">ESPECIALISTA EM HARMONIZAÇÃO OROFACIAL</p>
+                    <p class="text-body-md text-on-surface-variant leading-relaxed">Especialista em realçar os traços faciais de forma sutil e elegante, a Dra. Martins integra estética dental e facial para um equilíbrio perfeito.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Clinica Section -->
+        <section class="py-section-gap px-gutter max-w-[1280px] mx-auto reveal-on-scroll" id="clinica">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div>
+                    <span class="font-label-caps text-primary tracking-widest mb-4 block">AMBIENTE PREMIUM</span>
+                    <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg mb-8 italic">Um Refúgio de Serenidade para sua Saúde.</h2>
+                    <p class="text-body-lg text-on-surface-variant mb-8 leading-relaxed">
+                        Projetada para oferecer uma experiência sensorial relaxante, nossa clínica combina o design contemporâneo com o máximo conforto clínico. Cada detalhe, do aroma à iluminação, foi pensado para reduzir a ansiedade e proporcionar acolhimento.
+                    </p>
+                    <ul class="space-y-4 mb-10">
+                        <li class="flex items-center gap-4 text-on-surface">
+                            <span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                            <span>Salas Clínicas de Última Geração</span>
+                        </li>
+                        <li class="flex items-center gap-4 text-on-surface">
+                            <span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                            <span>Lounge de Espera Estilo Boutique</span>
+                        </li>
+                        <li class="flex items-center gap-4 text-on-surface">
+                            <span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                            <span>Biossegurança Nível Hospitalar</span>
+                        </li>
+                    </ul>
+                    <a href="#contato" class="inline-block neomorphic-relief px-8 py-4 font-label-caps text-label-caps text-primary tracking-widest hover:bg-white backdrop-blur-md transition-all rounded-DEFAULT">
+                        VISITE-NOS
+                    </a>
+                </div>
+                <div class="relative group">
+                    <div class="neomorphic-relief rounded-xl overflow-hidden aspect-video bg-white/20 p-1">
+                        <img alt="Interior da Clínica Lenkukl &amp; Martins" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 rounded-lg" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDORZTxzgBPf0SorAhQIyuQQthKvsFlUCFHv98qSkh_jiyideoMvMLBG8LojZCpZrtzShaofFep22iv17x1GK5T_V2x2nV9gRt9hRbFRDxhPcpj6zBaNpfHI5k6mR5vCjHdhQY3rP9nIWPmBGo3s5VbqBzF5in8fpjZ_fKHKZJKRLmapxggGq_BTyLLx3ZetdaAv4gdKV2wYqXY-F-SQII1CfsXYo1DOSEf2TCfkbG2EBeK1p5W2rs3c7ccPFHTEddXozNjGXQHpR8">
+                    </div>
+                    <div class="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none rounded-xl"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contato Section -->
+        <section class="py-section-gap px-gutter max-w-[1280px] mx-auto reveal-on-scroll" id="contato">
+            <div class="text-center mb-16">
+                <span class="font-label-caps text-primary tracking-widest mb-4 block">AGENDAMENTO &amp; LOCALIZAÇÃO</span>
+                <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-background mb-4 italic">Fale Conosco</h2>
+                <div class="h-[2px] w-16 bg-primary/40 mx-auto"></div>
+                <p class="text-body-md text-on-surface-variant max-w-xl mx-auto mt-6">Escolha o canal de sua preferência ou envie uma mensagem diretamente para nossa equipe.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-stretch">
+                <!-- Contact Info -->
+                <div class="lg:col-span-5 flex flex-col justify-between p-8 neomorphic-relief bg-white/30 backdrop-blur-sm rounded-xl">
+                    <div>
+                        <h3 class="font-title-md text-title-md text-primary mb-6">Lenkukl &amp; Martins</h3>
+                        <p class="text-body-md text-on-surface-variant leading-relaxed mb-8">
+                            Estamos situados em uma localização privilegiada em Gravataí, com estacionamento privativo e total segurança para sua conveniência.
+                        </p>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start gap-4">
+                                <span class="material-symbols-outlined text-primary mt-1">location_on</span>
+                                <div>
+                                    <h4 class="font-semibold text-on-surface">Endereço</h4>
+                                    <p class="text-body-md text-on-surface-variant">Avenida José Loureiro da Silva, 2025<br>Gravataí - RS, 94010-000</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start gap-4">
+                                <span class="material-symbols-outlined text-primary mt-1">call</span>
+                                <div>
+                                    <h4 class="font-semibold text-on-surface">Telefone</h4>
+                                    <p class="text-body-md text-on-surface-variant">(48) 3223-XXXX</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-4">
+                                <span class="material-symbols-outlined text-primary mt-1">schedule</span>
+                                <div>
+                                    <h4 class="font-semibold text-on-surface">Horário de Atendimento</h4>
+                                    <p class="text-body-md text-on-surface-variant">Segunda a Sexta: 09h às 19h</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-12 pt-8 border-t border-outline-variant/30 flex flex-col sm:flex-row gap-4">
+                        <a href="https://api.whatsapp.com/send?phone=5551997810591" target="_blank" rel="noopener noreferrer" class="flex-1 flex items-center justify-center gap-3 bg-[#25D366] text-white px-6 py-4 rounded-lg hover:opacity-90 active:scale-95 transition-all font-semibold shadow-md">
+                            <svg class="fill-current w-6 h-6" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.417-.003 6.557-5.338 11.892-11.893 11.892-1.997-.001-3.951-.5-5.688-1.448l-6.305 1.652zm6.599-3.835c1.52.909 3.019 1.388 4.647 1.389 5.405 0 9.811-4.406 9.813-9.812.001-2.623-1.02-5.088-2.871-6.941-1.851-1.852-4.315-2.873-6.94-2.873-5.407 0-9.811 4.406-9.813 9.814-.001 1.77.479 3.434 1.388 4.807l-.995 3.637 3.773-.99zm11.734-5.433c-.322-.161-1.902-.937-2.198-1.045-.297-.108-.512-.161-.727.161-.215.322-.834 1.045-1.022 1.26-.188.215-.376.242-.697.081-.323-.161-1.363-.502-2.596-1.602-.959-.855-1.607-1.912-1.795-2.234-.188-.322-.02-.497.141-.657.145-.143.322-.376.483-.564.161-.188.215-.322.322-.537.108-.215.054-.403-.027-.564-.081-.161-.727-1.748-.995-2.393-.262-.623-.529-.539-.727-.549-.188-.008-.403-.01-.618-.01s-.564.081-.86.403c-.296.322-1.128 1.102-1.128 2.688 0 1.586 1.155 3.118 1.316 3.333.161.215 2.274 3.473 5.508 4.87.77.332 1.37.53 1.838.679.773.245 1.476.21 2.032.127.619-.094 1.902-.779 2.171-1.532.269-.753.269-1.4.188-1.532-.081-.134-.296-.215-.618-.376z"/></svg>
+                            Falar no WhatsApp
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <form class="lg:col-span-7 p-8 neomorphic-relief bg-white/40 backdrop-blur-sm rounded-xl flex flex-col justify-between" action="#" method="POST" onsubmit="event.preventDefault(); alert('Mensagem enviada com sucesso! Entraremos em contato em breve.'); this.reset();">
+                    <div class="space-y-6">
+                        <div>
+                            <label for="name" class="block font-label-caps text-label-caps text-on-surface-variant mb-2">Nome Completo</label>
+                            <input type="text" id="name" required class="w-full bg-white/50 border-outline-variant/30 rounded-lg py-3 px-4 focus:ring-primary focus:border-primary text-on-surface placeholder-on-surface-variant/40 transition-all shadow-inner" placeholder="Ex: Maria Silva">
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div>
+                                <label for="email" class="block font-label-caps text-label-caps text-on-surface-variant mb-2">E-mail</label>
+                                <input type="email" id="email" required class="w-full bg-white/50 border-outline-variant/30 rounded-lg py-3 px-4 focus:ring-primary focus:border-primary text-on-surface placeholder-on-surface-variant/40 transition-all shadow-inner" placeholder="exemplo@email.com">
+                            </div>
+                            <div>
+                                <label for="phone" class="block font-label-caps text-label-caps text-on-surface-variant mb-2">Telefone</label>
+                                <input type="tel" id="phone" required class="w-full bg-white/50 border-outline-variant/30 rounded-lg py-3 px-4 focus:ring-primary focus:border-primary text-on-surface placeholder-on-surface-variant/40 transition-all shadow-inner" placeholder="(51) 99999-9999">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="treatment" class="block font-label-caps text-label-caps text-on-surface-variant mb-2">Tratamento de Interesse</label>
+                            <select id="treatment" class="w-full bg-white/50 border-outline-variant/30 rounded-lg py-3 px-4 focus:ring-primary focus:border-primary text-on-surface transition-all shadow-inner">
+                                <option value="" disabled selected>Selecione uma opção</option>
+                                <option value="implantes">Implantes Dentários</option>
+                                <option value="harmonizacao">Harmonização Orofacial</option>
+                                <option value="lentes">Facetas e Lentes Cerâmicas</option>
+                                <option value="bruxismo">Tratamento do Bruxismo</option>
+                                <option value="outros">Outros Tratamentos</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label for="message" class="block font-label-caps text-label-caps text-on-surface-variant mb-2">Mensagem</label>
+                            <textarea id="message" rows="4" class="w-full bg-white/50 border-outline-variant/30 rounded-lg py-3 px-4 focus:ring-primary focus:border-primary text-on-surface placeholder-on-surface-variant/40 transition-all shadow-inner" placeholder="Como podemos ajudar você?"></textarea>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="mt-8 bg-primary text-on-primary font-label-caps text-label-caps py-4 tracking-widest hover:opacity-90 active:scale-95 transition-all shadow-md rounded-DEFAULT w-full">
+                        ENVIAR MENSAGEM
+                    </button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="backdrop-blur-md py-section-gap px-gutter rounded-t-[50px] md:rounded-t-[100px] mt-20 border-t border-outline-variant/10 bg-white/10">
+        <div class="max-w-[1280px] mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
+            <div class="col-span-1 md:col-span-2">
+                <div class="font-headline-lg text-headline-lg text-primary italic mb-6">Lenkukl &amp; Martins</div>
+                <p class="text-body-md text-on-surface-variant max-w-sm mb-8">Especialistas em transformar vidas através de sorrisos saudáveis e harmônicos. Referência em Odontologia de Alta Performance.</p>
+                <div class="flex gap-4">
+                    <a class="w-10 h-10 neomorphic-relief flex items-center justify-center text-primary hover:text-on-primary hover:bg-primary transition-all rounded-full" href="#" aria-label="Compartilhar">
+                        <span class="material-symbols-outlined">share</span>
+                    </a>
+                    <a class="w-10 h-10 neomorphic-relief flex items-center justify-center text-primary hover:text-on-primary hover:bg-primary transition-all rounded-full" href="https://www.instagram.com/lenkuklemartinsodontologia/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                        <span class="material-symbols-outlined">photo_camera</span>
+                    </a>
+                </div>
+            </div>
+            <div>
+                <h4 class="font-label-caps text-label-caps tracking-widest text-primary mb-6">SERVIÇOS</h4>
+                <ul class="space-y-4 font-body-md text-on-surface-variant">
+                    <li><a class="hover:text-primary transition-colors" href="#especialidades">Ortodontia</a></li>
+                    <li><a class="hover:text-primary transition-colors" href="#especialidades">Próteses</a></li>
+                    <li><a class="hover:text-primary transition-colors" href="#especialidades">Implantes</a></li>
+                    <li><a class="hover:text-primary transition-colors" href="#especialidades">Facetas Cerâmicas</a></li>
+                    <li><a class="hover:text-primary transition-colors" href="#especialidades">Botox &amp; Preenchimento</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-label-caps text-label-caps tracking-widest text-primary mb-6">CONTATO</h4>
+                <ul class="space-y-4 font-body-md text-on-surface-variant">
+                    <li class="flex items-start gap-2">
+                        <span class="material-symbols-outlined text-sm mt-1">location_on</span>
+                        <span>Avenida José Loureiro da Silva, 2025,<br>Gravataí 94010-000</span>
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <span class="material-symbols-outlined text-sm">call</span>
+                        <span>(48) 3223-XXXX</span>
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <span class="material-symbols-outlined text-sm">schedule</span>
+                        <span>Seg - Sex: 09h às 19h</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="max-w-[1280px] mx-auto mt-20 pt-8 border-t border-outline-variant/10 text-center text-label-caps text-on-surface-variant opacity-60">
+            © 2026 Lenkukl &amp; Martins Odontologia Especializada. Todos os direitos reservados.
+        </div>
+    </footer>
+</div>
+
+<!-- Floating WhatsApp Link -->
+<a class="fixed bottom-8 right-8 z-50 flex items-center justify-center w-16 h-16 rounded-full shadow-2xl transition-transform duration-300 hover:scale-110 active:scale-95 bg-[#25D366]" href="https://api.whatsapp.com/send?phone=5551997810591" rel="noopener noreferrer" target="_blank" aria-label="Contato via WhatsApp">
+    <svg fill="white" height="32" viewBox="0 0 24 24" width="32" xmlns="http://www.w3.org/2000/svg">
+        <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.417-.003 6.557-5.338 11.892-11.893 11.892-1.997-.001-3.951-.5-5.688-1.448l-6.305 1.652zm6.599-3.835c1.52.909 3.019 1.388 4.647 1.389 5.405 0 9.811-4.406 9.813-9.812.001-2.623-1.02-5.088-2.871-6.941-1.851-1.852-4.315-2.873-6.94-2.873-5.407 0-9.811 4.406-9.813 9.814-.001 1.77.479 3.434 1.388 4.807l-.995 3.637 3.773-.99zm11.734-5.433c-.322-.161-1.902-.937-2.198-1.045-.297-.108-.512-.161-.727.161-.215.322-.834 1.045-1.022 1.26-.188.215-.376.242-.697.081-.323-.161-1.363-.502-2.596-1.602-.959-.855-1.607-1.912-1.795-2.234-.188-.322-.02-.497.141-.657.145-.143.322-.376.483-.564.161-.188.215-.322.322-.537.108-.215.054-.403-.027-.564-.081-.161-.727-1.748-.995-2.393-.262-.623-.529-.539-.727-.549-.188-.008-.403-.01-.618-.01s-.564.081-.86.403c-.296.322-1.128 1.102-1.128 2.688 0 1.586 1.155 3.118 1.316 3.333.161.215 2.274 3.473 5.508 4.87.77.332 1.37.53 1.838.679.773.245 1.476.21 2.032.127.619-.094 1.902-.779 2.171-1.532.269-.753.269-1.4.188-1.532-.081-.134-.296-.215-.618-.376z"></path>
+    </svg>
+</a>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Scroll Reveal
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal-on-scroll').forEach(el => observer.observe(el));
+        
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const closeMenuBtn = document.getElementById('close-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+
+        function toggleMobileMenu() {
+            mobileMenu.classList.toggle('translate-x-full');
+        }
+
+        if (mobileMenuBtn && closeMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+            closeMenuBtn.addEventListener('click', toggleMobileMenu);
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', toggleMobileMenu);
+            });
+        }
+    });
+</script>
+</body>
+</html>
