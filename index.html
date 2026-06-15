@@ -364,9 +364,18 @@
                     <div class="neomorphic-relief rounded-xl overflow-hidden aspect-[4/5] bg-white/30 backdrop-blur-sm p-1">
                         <img alt="Dras Lenkukl e Martins juntas" class="w-full h-full object-cover rounded-lg" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFw3uGr-E8wFBbNLqFMGB5lDMDX_7uH0xqOELlPTcdc4F4F6Pqoh0CTU64andgEwauzyLgvHIY_8XI4vp4KN8BawNJRdtZzmSV4We_9SlHHmEx84kUFBnk6j3YET1-a17rCHvsJsEfVJKXsIGVcLBarRtvSipPUvlcVHI_VCylxt6k4lRNPOxG9apn4jI1WTpKvw7aft9Uo8udNoI5hJoI5w3PYlf_5WpFu5_9zGNy1Gl-ZbAVs68XrmxUmRy2x97MNJ3JoxGKbHc">
                     </div>
-                    <div class="absolute -bottom-6 -right-6 w-48 h-48 neomorphic-relief rounded-xl p-4 bg-white/90 backdrop-blur-md hidden md:flex flex-col justify-center items-center text-center">
-                        <span id="stat-years" class="font-display-lg text-primary text-4xl mb-2">0+</span>
-                        <span class="font-label-caps text-[10px] tracking-widest">ANOS DE EXPERIÊNCIA COMBINADA</span>
+                    <!-- Stats badges: visible on ALL screen sizes -->
+                    <div class="mt-4 md:mt-0 flex gap-3 justify-center md:absolute md:-bottom-6 md:-right-6 md:flex-col md:w-auto md:gap-3">
+                        <!-- 15 anos -->
+                        <div class="flex-1 md:flex-none md:w-44 neomorphic-relief rounded-xl p-4 bg-white/90 backdrop-blur-md flex flex-col justify-center items-center text-center">
+                            <span id="stat-years" class="font-display-lg text-primary text-3xl md:text-4xl mb-1">0+</span>
+                            <span class="font-label-caps text-[9px] md:text-[10px] tracking-widest leading-tight">ANOS DE EXPERI&Ecirc;NCIA COMBINADA</span>
+                        </div>
+                        <!-- 3000 atendimentos -->
+                        <div class="flex-1 md:flex-none md:w-44 neomorphic-relief rounded-xl p-4 bg-white/90 backdrop-blur-md flex flex-col justify-center items-center text-center">
+                            <span id="stat-attend" class="font-display-lg text-primary text-3xl md:text-4xl mb-1">0+</span>
+                            <span class="font-label-caps text-[9px] md:text-[10px] tracking-widest leading-tight">ATENDIMENTOS REALIZADOS</span>
+                        </div>
                     </div>
                 </div>
                 <div>
@@ -618,44 +627,36 @@
     });
 </script>
     <script>
-        /* ── Count-Up: 0 → 15 in 2.5s (ease-out) ── */
+        /* ── Count-Up helper ── */
         (function () {
-            const el      = document.getElementById('stat-years');
-            const target  = 15;
-            const duration = 2500; // ms
-            let started   = false;
+            function easeOut(t) { return 1 - Math.pow(1 - t, 3); }
 
-            function easeOut(t) {
-                /* cubic ease-out: fast start, gentle deceleration */
-                return 1 - Math.pow(1 - t, 3);
-            }
+            function countUp(id, target, duration) {
+                const el = document.getElementById(id);
+                if (!el) return;
+                let started = false;
 
-            function runCounter() {
-                if (started) return;
-                started = true;
-                const startTime = performance.now();
-
-                function tick(now) {
-                    const elapsed  = now - startTime;
-                    const progress = Math.min(elapsed / duration, 1);
-                    const value    = Math.round(easeOut(progress) * target);
-                    el.textContent = value + '+';
-                    if (progress < 1) requestAnimationFrame(tick);
-                }
-                requestAnimationFrame(tick);
-            }
-
-            /* Fire when the badge enters the viewport */
-            const observer = new IntersectionObserver(function (entries) {
-                entries.forEach(function (entry) {
-                    if (entry.isIntersecting) {
-                        runCounter();
-                        observer.disconnect();
+                function run() {
+                    if (started) return;
+                    started = true;
+                    const t0 = performance.now();
+                    function tick(now) {
+                        const p = Math.min((now - t0) / duration, 1);
+                        el.textContent = Math.round(easeOut(p) * target) + '+';
+                        if (p < 1) requestAnimationFrame(tick);
                     }
-                });
-            }, { threshold: 0.5 });
+                    requestAnimationFrame(tick);
+                }
 
-            observer.observe(el);
+                new IntersectionObserver(function (entries, obs) {
+                    entries.forEach(function (e) {
+                        if (e.isIntersecting) { run(); obs.disconnect(); }
+                    });
+                }, { threshold: 0.5 }).observe(el);
+            }
+
+            countUp('stat-years',  15,   2500);
+            countUp('stat-attend', 3000, 2500);
         })();
     </script>
 </body>
