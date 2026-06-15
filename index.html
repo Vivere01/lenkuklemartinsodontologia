@@ -365,7 +365,7 @@
                         <img alt="Dras Lenkukl e Martins juntas" class="w-full h-full object-cover rounded-lg" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFw3uGr-E8wFBbNLqFMGB5lDMDX_7uH0xqOELlPTcdc4F4F6Pqoh0CTU64andgEwauzyLgvHIY_8XI4vp4KN8BawNJRdtZzmSV4We_9SlHHmEx84kUFBnk6j3YET1-a17rCHvsJsEfVJKXsIGVcLBarRtvSipPUvlcVHI_VCylxt6k4lRNPOxG9apn4jI1WTpKvw7aft9Uo8udNoI5hJoI5w3PYlf_5WpFu5_9zGNy1Gl-ZbAVs68XrmxUmRy2x97MNJ3JoxGKbHc">
                     </div>
                     <div class="absolute -bottom-6 -right-6 w-48 h-48 neomorphic-relief rounded-xl p-4 bg-white/90 backdrop-blur-md hidden md:flex flex-col justify-center items-center text-center">
-                        <span class="font-display-lg text-primary text-4xl mb-2">15+</span>
+                        <span id="stat-years" class="font-display-lg text-primary text-4xl mb-2">0+</span>
                         <span class="font-label-caps text-[10px] tracking-widest">ANOS DE EXPERIÊNCIA COMBINADA</span>
                     </div>
                 </div>
@@ -617,5 +617,46 @@
         }
     });
 </script>
+    <script>
+        /* ── Count-Up: 0 → 15 in 2.5s (ease-out) ── */
+        (function () {
+            const el      = document.getElementById('stat-years');
+            const target  = 15;
+            const duration = 2500; // ms
+            let started   = false;
+
+            function easeOut(t) {
+                /* cubic ease-out: fast start, gentle deceleration */
+                return 1 - Math.pow(1 - t, 3);
+            }
+
+            function runCounter() {
+                if (started) return;
+                started = true;
+                const startTime = performance.now();
+
+                function tick(now) {
+                    const elapsed  = now - startTime;
+                    const progress = Math.min(elapsed / duration, 1);
+                    const value    = Math.round(easeOut(progress) * target);
+                    el.textContent = value + '+';
+                    if (progress < 1) requestAnimationFrame(tick);
+                }
+                requestAnimationFrame(tick);
+            }
+
+            /* Fire when the badge enters the viewport */
+            const observer = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) {
+                        runCounter();
+                        observer.disconnect();
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            observer.observe(el);
+        })();
+    </script>
 </body>
 </html>
